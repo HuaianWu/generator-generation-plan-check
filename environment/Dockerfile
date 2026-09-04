@@ -15,7 +15,7 @@ RUN git clone https://github.com/mybatis/generator . \
  && git gc --prune=now \
  && { test ! -s .gitmodules || git submodule update --init --recursive; }
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends openjdk-17-jdk-headless maven \
+    && apt-get install -y --no-install-recommends openjdk-17-jdk-headless=17.0.20.1+1-1~deb12u1 maven=3.8.7-1 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN cd core && mvn -q -DskipTests dependency:go-offline
